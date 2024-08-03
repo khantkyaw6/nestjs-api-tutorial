@@ -8,6 +8,7 @@ export class AuthController {
   constructor(private authSerivce: AuthService) {}
 
   @Post('login')
+  @UseInterceptors(FileInterceptor(''))
   login(@Body() dto: AuthDto) {
     return this.authSerivce.login(dto);
   }
